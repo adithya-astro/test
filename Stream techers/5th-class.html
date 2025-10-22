@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5th Class - Training Videos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Make iframes responsive */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 0.5rem; /* Rounded corners */
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 font-sans antialiased">
+
+    <!-- Header -->
+    <header class="bg-yellow-200 text-gray-900 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <h1 class="text-3xl font-bold">
+                <a href="index.html" class="text-gray-900 hover:text-yellow-400">Stream Techers</a>
+            </h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="index.html" class="hover:text-yellow-400">Home</a></li>
+                    <li><a href="#" class="hover:text-yellow-400">About</a></li>
+                    <li><a href="#" class="hover:text-yellow-400">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section for Class Pages -->
+    <section class="bg-yellow-100 text-gray-900 text-center py-16">
+        <h2 class="text-5xl font-extrabold leading-tight">5th Class Videos</h2>
+        <p class="mt-4 text-xl text-gray-300">Training resources for 5th class.</p>
+    </section>
+
+    <!-- Main Content: Video Gallery -->
+    <main class="container mx-auto px-6 py-8">
+
+        <!-- Back Link -->
+        <div class="mb-8">
+            <a href="./index.html" class="text-yellow-400 hover:text-yellow-300">&larr; Back to Home</a>
+        </div>
+
+        <!-- 5th Class Video Grid -->
+        <div id="5th-class-videos" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Videos will be loaded here by JavaScript -->
+        </div>
+
+    </main>
+
+    <footer class="bg-yellow-200 text-gray-900 text-center py-8 mt-12">
+        <p>&copy; Stream Ecosystem All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('videos.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const videoContainer = document.getElementById('5th-class-videos');
+                    const classVideos = data['5th-class'];
+
+                    if (classVideos && classVideos.length > 0) {
+                        classVideos.forEach(video => {
+                            const videoCard = `
+                                <div class="video-card bg-white rounded-lg shadow-lg overflow-hidden">
+                                    <div class="video-wrapper">
+                                        <iframe width="560" height="315"
+                                                src="${video.link}"
+                                                title="YouTube video player"
+                                                frameborder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                referrerpolicy="strict-origin-when-cross-origin"
+                                                allowfullscreen>
+                                        </iframe>
+                                    </div>
+                                    <div class="p-6">
+                                        <h3 class="text-xl font-semibold mb-2 text-gray-900">${video.title}</h3>
+                                        <p class="text-gray-700">A short description of the video goes here.</p>
+                                    </div>
+                                </div>
+                            `;
+                            videoContainer.innerHTML += videoCard;
+                        });
+                    } else {
+                        videoContainer.innerHTML = '<p class="text-gray-700">No videos available for 5th class yet.</p>';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching or processing videos:', error);
+                    document.getElementById('5th-class-videos').innerHTML = '<p class="text-red-500">Failed to load videos. Check console for details.</p>';
+                });
+        });
+    </script>
+
+</body>
+</html>
