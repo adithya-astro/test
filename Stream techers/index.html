@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 1. Updated Title -->
+    <title>Teacher Training Videos</title>
+    <!-- 2. Load Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 3. Removed styles for video and tabs, as they are no longer on this page */
+    </style>
+</head>
+<body class="bg-yellow-100 text-gray-900 font-sans antialiased flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-yellow-200 text-gray-900 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <h1 class="text-3xl font-bold">
+                <a href="index.html" class="text-gray-900 hover:text-yellow-400"><img src="stream logo.png" alt="Stream Techers Logo" class="inline-block h-12 w-20 mr-2">Stream Ecosysteam</a>
+            </h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <!-- Updated Nav Links with IDs -->
+                    <li><a href="javascript:void(0)" id="nav-home" class="nav-link hover:text-yellow-400 font-bold text-yellow-600 border-b-2 border-yellow-600">Home</a></li>
+                    <li><a href="javascript:void(0)" id="nav-about" class="nav-link hover:text-yellow-400">About</a></li>
+                    <li><a href="javascript:void(0)" id="nav-contact" class="nav-link hover:text-yellow-400">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content: Wrapper for different sections -->
+    <main class="flex-grow">
+
+        <!-- Home Content (Visible by default) -->
+        <div id="home-content" class="container mx-auto px-6 py-8">
+            <!-- Added Content Section -->
+            <section class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Welcome to Stream Ecosystem</h2>
+                <p class="text-lg text-gray-700 max-w-2xl mx-auto">
+                    Your central hub for teacher training videos and resources. Select your class below to get started and explore a wealth of knowledge designed to help you grow.
+                </p>
+            </section>
+
+            <!-- 5. Navigation Links (changed from buttons to <a> tags) -->
+            <!-- Updated classes for visibility: increased size, added shadow, and transform on hover -->
+            <div class="flex flex-col md:flex-row justify-center items-center md:space-x-8 space-y-6 md:space-y-0">
+                <a href="./5th-class.html" class="w-full md:w-auto text-center bg-yellow-400 text-gray-900 hover:bg-yellow-500 py-4 px-10 rounded-lg font-semibold text-xl transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 transform">
+                    5th Class
+                </a>
+                <a href="./6th-class.html" class="w-full md:w-auto text-center bg-yellow-400 text-gray-900 hover:bg-yellow-500 py-4 px-10 rounded-lg font-semibold text-xl transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 transform">
+                    6th Class
+                </a>
+                <a href="./7th-class.html" class="w-full md:w-auto text-center bg-yellow-400 text-gray-900 hover:bg-yellow-500 py-4 px-10 rounded-lg font-semibold text-xl transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 transform">
+                    7th Class
+                </a>
+            </div>
+        </div>
+
+        <!-- About Content (Hidden by default) -->
+        <div id="about-content" class="hidden container mx-auto px-6 py-8">
+            <section class="text-center max-w-3xl mx-auto">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">About Stream Ecosystem</h2>
+                <p class="text-lg text-gray-700 mb-4">
+                    Stream Ecosystem is dedicated to providing high-quality training resources for teachers. Our platform offers a wide range of videos and materials tailored to different class levels, helping educators enhance their skills and bring innovative teaching methods to their classrooms.
+                </p>
+                <p class="text-lg text-gray-700">
+                    Our mission is to empower teachers with the knowledge and tools they need to succeed in an ever-evolving educational landscape. We believe that with the right support, every teacher can make a profound impact.
+                </p>
+            </section>
+        </div>
+
+        <!-- Contact Content (Hidden by default) -->
+        <div id="contact-content" class="hidden container mx-auto px-6 py-8">
+            <section class="max-w-xl mx-auto">
+                <h2 class="text-4xl font-bold text-gray-800 mb-8 text-center">Contact Us</h2>
+                <!-- Replaced the <form> with this new <div> -->
+                <div class="bg-white p-8 rounded-lg shadow-lg text-lg text-gray-700 space-y-6">
+                    
+                    <!-- Phone Number -->
+                    <div class="flex items-center space-x-4">
+                        <!-- Phone Icon -->
+                        <svg class="w-6 h-6 text-yellow-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.211-.998-.55-1.35l-3.956-3.853a1.125 1.125 0 00-1.58 0l-1.12 1.12a1.125 1.125 0 01-1.57 0l-3.956-3.853a1.125 1.125 0 010-1.57l1.12-1.12a1.125 1.125 0 000-1.58L9.12 3.549a2.25 2.25 0 00-1.35-.55H6.375a2.25 2.25 0 00-2.25 2.25v1.372z" />
+                        </svg>
+                        <a href="tel:+910000000000" class="hover:text-yellow-600 hover:underline">+91 (000) 000-0000</a>
+                    </div>
+
+                    <!-- Email ID -->
+                    <div class="flex items-center space-x-4">
+                        <!-- Email Icon -->
+                        <svg class="w-6 h-6 text-yellow-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                        </svg>
+                        <a href="mailto:contact@streamecosystem.com" class="hover:text-yellow-600 hover:underline">contact@streamecosystem.com</a>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="pt-4 border-t border-gray-200">
+                        <h3 class="text-xl font-semibold text-center mb-4">Follow Us</h3>
+                        <div class="flex justify-center space-x-6">
+                            <!-- Twitter Icon (Placeholder) -->
+                            <a href="#" class="text-gray-500 hover:text-yellow-500" aria-label="Twitter">
+                                <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-3.993-.2-7.523-2.11-9.895-5.013-.412.711-.64 1.538-.64 2.418 0 1.62.825 3.057 2.088 3.898-.76-.025-1.474-.235-2.1-.586v.054c0 2.26 1.604 4.14 3.73 4.568-.39.106-.8.163-1.225.163-.3 0-.59-.028-.875-.083.593 1.84 2.31 3.18 4.34 3.22-1.59 1.25-3.59 2-5.76 2-1.05 0-2.09-.06-3.12-.18C2.643 18.02 5.53 19 8.69 19c10.4 0 16.1-8.6 16.1-16.1 0-.25-.01-.49-.02-.73.9-.65 1.67-1.47 2.28-2.28z"/>
+                                </svg>
+                            </a>
+                            <!-- LinkedIn Icon (Placeholder) -->
+                            <a href="#" class="text-gray-500 hover:text-yellow-500" aria-label="LinkedIn">
+                                <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.6c0-1.33-.024-3.03-.823-3.03s-.948 1.43-1.029 2.95v5.68h-3v-11h2.88v1.396h.04c.42-.79 1.44-1.62 2.84-1.62 3.03 0 3.59 1.99 3.59 4.57v6.654z"/>
+                                </svg>
+                            </a>
+                            <!-- Facebook Icon (Placeholder) -->
+                            <a href="#" class="text-gray-500 hover:text-yellow-500" aria-label="Facebook">
+                                <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+    </main>
+    <footer class="bg-yellow-200 text-gray-900 text-center py-8 mt-12">
+        <!-- This is the corrected line -->
+        <p><img src="stream logo.png" alt="Stream Ecosystem Logo" class="inline-block h-12 w-15 mr-2">&copy; Stream Ecosystem. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Navigation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Navigation Links
+            const navLinks = {
+                home: document.getElementById('nav-home'),
+                about: document.getElementById('nav-about'),
+                contact: document.getElementById('nav-contact')
+            };
+
+            // Content Sections
+            const contentSections = {
+                home: document.getElementById('home-content'),
+                about: document.getElementById('about-content'),
+                contact: document.getElementById('contact-content')
+            };
+
+            // Classes to toggle for the active link
+            const activeClasses = ['font-bold', 'text-yellow-600', 'border-b-2', 'border-yellow-600'];
+
+            function showSection(sectionToShow) {
+                // Hide all content sections
+                Object.values(contentSections).forEach(section => {
+                    section.classList.add('hidden');
+                });
+
+                // Remove active classes from all nav links
+                Object.values(navLinks).forEach(link => {
+                    link.classList.remove(...activeClasses);
+                });
+
+                // Show the target section
+                if (contentSections[sectionToShow]) {
+                    contentSections[sectionToShow].classList.remove('hidden');
+                }
+
+                // Add active classes to the target link
+                if (navLinks[sectionToShow]) {
+                    navLinks[sectionToShow].classList.add(...activeClasses);
+                }
+            }
+
+            // Add click event listeners to nav links
+            navLinks.home.addEventListener('click', (e) => {
+                e.preventDefault();
+                showSection('home');
+            });
+
+            navLinks.about.addEventListener('click', (e) => {
+                e.preventDefault();
+                showSection('about');
+            });
+
+            navLinks.contact.addEventListener('click', (e) => {
+                e.preventDefault();
+                showSection('contact');
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+
