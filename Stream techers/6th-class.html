@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6th Class - Training Resources</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans Malayalam', sans-serif;
+        }
+        /* Responsive iframe wrapper */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 0.5rem;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+
+    <section class="bg-yellow-200 text-gray-900 text-center py-16">
+        <h2 class="text-5xl font-extrabold leading-tight">6th Class Resources</h2>
+        <p class="mt-4 ml-6 mr-6 text-base text-gray-700">ആറാം ക്ലാസ്സിനുവേണ്ടി തയ്യാറാക്കിയ മൊഡ്യൂൾ എങ്ങനെ ഫലപ്രദമായി നടപ്പിലാക്കാം എന്ന് വിശദീകരിക്കുന്ന വീഡിയോകളാണ് താഴെ കൊടുത്തിരിക്കുന്നത്. മൊഡ്യൂളുകളിൽ ചർച്ച ചെയ്യുന്ന ആശയങ്ങൾ, ഓരോ ഘട്ടങ്ങളിലെ പ്രവർത്തനങ്ങൾ, വിലയിരുത്തേണ്ടുന്ന നൈപുണികൾ, പ്രവർത്തനങ്ങൾ ക്ലാസ്സിൽ നടപ്പിലാക്കുമ്പോൾ ശ്രദ്ധിക്കേണ്ട കാര്യങ്ങൾ എന്നിവ ഈ വീഡിയോകളിൽ വിശദീകരിക്കുന്നു. കുട്ടികൾക്കു വേണ്ടി തയ്യാറാക്കിയ വർക്ക്ബുക്കുകളെയും വീഡിയോകളിലൂടെ പരിചയപ്പെടാം. കൂടാതെ മൊഡ്യൂളിന്റെ ഭാഗമായുള്ള അവതരണ സ്ലൈഡുകളും, കുട്ടികൾക്കായുള്ള വീഡിയോയും താഴെ കൊടുത്തിരിക്കുന്നു.</p>
+    </section>
+
+    <main class="container mx-auto px-6 py-8">
+
+        <div class="mb-12">
+            <a href="./index.html" class="text-yellow-400 hover:text-yellow-300">&larr; Back to Home</a>
+        </div>
+
+        <section id="teacher-training" class="mb-16">
+            <h2 class="text-3xl font-bold border-b-2 border-yellow-300 pb-2 mb-8">1. Teacher Training Videos</h2>
+            <div id="teacher-training-videos" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                </div>
+        </section>
+
+        <section id="module-ppts-section" class="mb-16">
+            <h2 class="text-3xl font-bold border-b-2 border-yellow-300 pb-2 mb-8">2. Module PPTs</h2>
+            <div id="module-ppts-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                </div>
+        </section>
+
+        <section id="stream-modules">
+            <h2 class="text-3xl font-bold border-b-2 border-yellow-300 pb-2 mb-8">3. STREAM Module Videos</h2>
+            <div id="stream-module-videos" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-yellow-200 text-gray-900 text-center py-8 mt-12">
+        <p><img src="stream logo.png" alt="Stream Ecosystem Logo" class="inline-block h-12 w-15 mr-2">&copy; Stream Ecosystem. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- 1. Load Teacher Training Videos from videos.json ---
+            const teacherVideoContainer = document.getElementById("teacher-training-videos");
+            fetch('videos.json')
+                .then(response => response.ok ? response.json() : Promise.reject(response.status))
+                .then(data => {
+                    const teacherVideos = data['6th-class'];
+                    if (teacherVideos && teacherVideos.length > 0) {
+                        teacherVideos.forEach(video => {
+                            const videoCard = `
+                                <div class="video-card bg-white rounded-lg shadow-lg overflow-hidden">
+                                    <div class="video-wrapper">
+                                        <iframe src="${video.link}" title="${video.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                    </div>
+                                    <div class="p-6">
+                                        <h3 class="text-xl font-semibold mb-2 text-gray-900">${video.title}</h3>
+                                        <p class="text-gray-700">A short description of the video goes here.</p>
+                                    </div>
+                                </div>`;
+                            teacherVideoContainer.innerHTML += videoCard;
+                        });
+                    } else {
+                        teacherVideoContainer.innerHTML = '<p class="text-gray-700 col-span-full">No teacher training videos available yet.</p>';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching teacher videos:', error);
+                    teacherVideoContainer.innerHTML = '<p class="text-red-500 col-span-full">Failed to load teacher videos.</p>';
+                });
+
+            // --- 2. Load Module PPTs from ppts.json ---
+            const pptContainer = document.getElementById('module-ppts-container');
+            fetch('ppts.json')
+                .then(response => response.ok ? response.json() : Promise.reject(response.status))
+                .then(data => {
+                    const modulePpts = data['6th-class-ppts'];
+                    if (modulePpts && modulePpts.length > 0) {
+                        modulePpts.forEach(ppt => {
+                            const pptCard = `
+                                <div class="ppt-card bg-white rounded-lg shadow-lg overflow-hidden flex flex-col justify-between p-6 text-center">
+                                    <h3 class="text-lg font-semibold mb-4 text-gray-900">${ppt.title}</h3>
+                                    <a href="${ppt.link}" download class="w-full bg-yellow-400 text-gray-900 font-bold py-2 px-4 rounded hover:bg-yellow-300 transition duration-300">
+                                        Download PDF
+                                    </a>
+                                </div>`;
+                            pptContainer.innerHTML += pptCard;
+                        });
+                    } else {
+                        pptContainer.innerHTML = '<p class="text-gray-700 col-span-full">No module presentations available yet.</p>';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching PPTs:', error);
+                    pptContainer.innerHTML = '<p class="text-red-500 col-span-full">Failed to load module presentations.</p>';
+                });
+
+            // --- 3. Load STREAM Module Videos from stream_videos.json ---
+            const moduleVideoContainer = document.getElementById('stream-module-videos');
+            fetch('stream_videos.json')
+                .then(response => response.ok ? response.json() : Promise.reject(response.status))
+                .then(data => {
+                    const moduleVideos = data['6th-class-module-videos'];
+                    if (moduleVideos && moduleVideos.length > 0) {
+                        moduleVideos.forEach(video => {
+                            const videoCard = `
+                                <div class="video-card bg-white rounded-lg shadow-lg overflow-hidden">
+                                    <div class="video-wrapper">
+                                        <iframe src="${video.link}" title="${video.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                    </div>
+                                    <div class="p-6">
+                                        <h3 class="text-xl font-semibold mb-2 text-gray-900">${video.title}</h3>
+                                        <p class="text-gray-700">A short description of the video goes here.</p>
+                                    </div>
+                                </div>`;
+                            moduleVideoContainer.innerHTML += videoCard;
+                        });
+                    } else {
+                        moduleVideoContainer.innerHTML = '<p class="text-gray-700 col-span-full">No STREAM module videos available yet.</p>';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching STREAM videos:', error);
+                    moduleVideoContainer.innerHTML = '<p class="text-red-500 col-span-full">Failed to load STREAM videos.</p>';
+                });
+        });
+    </script>
+
+</body>
+</html>
